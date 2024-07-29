@@ -45,7 +45,7 @@ jobs:
     - name: Create Security Group
       id: sg
       run: | 
-        SG_ID=$(aws ec2 create-security-group --group-name MyGHASecGrp1 --description "SecurityGroup for github action"  --vpc-id vpc-b9b523d0 --query 'GroupId' --output text)
+        SG_ID=$(aws ec2 create-security-group --group-name MyGHASecGrp2 --description "SecurityGroup for github action"  --vpc-id vpc-b9b523d0 --query 'GroupId' --output text)
         aws ec2 authorize-security-group-ingress --group-id $SG_ID --protocol tcp --port 80 --cidr 0.0.0.0/0
         aws ec2 authorize-security-group-ingress --group-id $SG_ID --protocol tcp --port 22 --cidr 0.0.0.0/0
         echo "::set-output name=sg_id::$SG_ID"
