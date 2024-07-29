@@ -1,3 +1,4 @@
+#!/bin/bash
 sudo hostname docker
 sudo hostnamectl set hostname docker
 sudo yum update  -y
