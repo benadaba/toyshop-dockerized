@@ -34,3 +34,14 @@ jobs:
         context: .
         push: true
         tags: ${{ secrets.DOCKER_USERNAME  }}/toyshop-dockerized:gha
+
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v2
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: eu-west-2
+
+    - name: Create Security Group
+      run: | 
+        aws ec2 create-security-group --group-name MyGHASecGrp --description "SecurityGroup for github action"
