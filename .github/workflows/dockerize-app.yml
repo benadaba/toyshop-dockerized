@@ -1,0 +1,26 @@
+#name
+name: Dockerise web application
+
+#when does it run
+on:
+  push:
+    branches: [ "main" ] #run only when there is a push on the main branch
+  pull_request:
+    branches: [ "main" ]  #only when there is a pull  request for the main branch
+
+
+#what jobs will it be running when it triggers
+jobs:
+  #which manchine is it going to run it on
+  build-run-docker-image:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+      
+    - name: Check that it runs fine. 
+      run: ls 
+    # - name: 3rd steps
+  # another-job:
+  #   runs-on: 
