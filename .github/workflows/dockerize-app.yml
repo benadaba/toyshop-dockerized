@@ -51,4 +51,8 @@ jobs:
         echo "::set-output name=sg_id::$SG_ID"
 
 
-    # - name: Launch EC2 Instance
+    - name: Launch EC2 Instance
+      run: |
+        aws ec2 run-instances --image-id ami-046d5130831576bbb --count 1 --instance-type t2.medium --key-name April2024key1 --security-group-ids ${{ steps.sg.outputs.sg_id }} --subnet-id 	
+subnet-c737ea8a
+            
