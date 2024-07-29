@@ -18,9 +18,12 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
-      
+
     - name: Check that it runs fine. 
       run: ls 
-    # - name: 3rd steps
-  # another-job:
-  #   runs-on: 
+
+    - name: Log in to Docker Hub
+      uses: docker/login-action@v1
+      with:
+        username: username
+        password: password
